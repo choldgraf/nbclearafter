@@ -1,0 +1,4 @@
+#!/bin/bash
+
+jupyter nbextension install --py nbclearafter --sys-prefix --symlink
+jupyter nbextension enable --py nbclearafter --sys-prefix
