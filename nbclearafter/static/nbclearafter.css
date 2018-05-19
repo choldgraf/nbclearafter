@@ -1,0 +1,4 @@
+// Inactive cell styling
+div.inactive span {
+  color: #929292 !important
+};
