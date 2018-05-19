@@ -8,7 +8,7 @@ define([
             .attr({
                 rel: 'stylesheet',
                 type: 'text/css',
-                href: requirejs.toUrl('./nbclearafter.css')
+                href: requirejs.toUrl('./static/nbclearafter.css')
             })
             .appendTo('head');
     };
@@ -35,14 +35,17 @@ define([
             cur_cell.metadata.editable = true;
             cur_cell.element[0].classList.remove('inactive');
             cur_cell.element[0].classList.remove('stale');
+
             // The next cell is stale but inactive
             if (i === (ix_start + 1)) {
               cur_cell.clear_output();
+              cur_cell.metadata.editable = false;
               cur_cell.element[0].classList.add('stale');
             }
             // The remaining cells are both stale and inactive
             if (i > (ix_start + 1)) {
               // Subsequent cells are now inactive and stale
+              cur_cell.clear_output();
               cur_cell.metadata.editable = false;
               cur_cell.element[0].classList.add('stale');
               cur_cell.element[0].classList.add('inactive');
